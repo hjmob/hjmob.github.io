@@ -1,1 +1,22 @@
-<h6>ming</h6>
+<html>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <body>
+
+    <h1>火影</h1>
+    <img src="huoying.jpg">
+    <script src="main.js"></script>
+    <script>
+    // 兼容性判断
+    if ('serviceWorker' in navigator) {
+      //注册
+      navigator.serviceWorker.register('./sw.js').then(function(registration) {
+        // Registration was successful
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      }).catch(function(err) {
+        // registration failed :(
+        console.log('ServiceWorker registration failed: ', err);
+      });
+    }
+    </script>
+  </body>
+</html>
