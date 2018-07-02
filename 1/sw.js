@@ -7,7 +7,7 @@ self.addEventListener('install', event => {
     .then(cache => cache.addAll([
       './main.js',
       './huoying.jpg',
-      './css/style.css',
+      './style.css',
       './index.html'
     ]))
   );
