@@ -7,7 +7,7 @@
   "display": "standalone",
   "icons": [
     {
-      "src": "./images/homescreen-300.png",
+      "src": "./images/homescreen-144.png",
       "sizes": "300x300",
       "type": "image/png"
     }
