@@ -1,19 +1,24 @@
-var cacheName = 'latestNews-v1';
+var cacheName = 'v1';
 
-// 安装
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(cacheName)
-
-    //外壳
-    .then(cache => cache.addAll([
-      './main.js',
-      './huoying.jpg',
-      './style.css',
-      './index.html'
-    ]))
-  );
+// 安装阶段跳过等待，直接进入 active
+self.addEventListener('install', function(event) {
+    event.waitUntil(self.skipWaiting());
 });
+
+self.addEventListener('activate', event => event.waitUntil(
+    Promise.all([
+        // 更新客户端
+        clients.claim(),
+        // 清理旧版本
+        caches.keys().then(cacheList => Promise.all(
+            cacheList.map(cName => {
+                if (cName !== cacheName) {
+                    caches.delete(cacheName);
+                }
+            })
+        ))
+    ])
+));
 
 // 动态请求
 self.addEventListener('fetch', function(event) {
