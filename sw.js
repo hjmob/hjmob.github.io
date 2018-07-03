@@ -1,4 +1,4 @@
-var cacheName = 'v1';
+var cacheName = 'v2';
 
 // 安装阶段跳过等待，直接进入 active
 self.addEventListener('install', function(event) {
