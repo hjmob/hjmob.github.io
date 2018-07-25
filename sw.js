@@ -6,7 +6,7 @@ let isFirstServiceWorker = true;
 let version = 37;
 
 let cacheSource = [
-  `/test.js?v=${version}`,
+  `/main.js?v=${version}`,
   `/huoying.jpg?v=${version}`,
   `/style.css?v=${version}`
 ]
